@@ -1,0 +1,13 @@
+set up a git directory folder locally
+
+git init
+
+git remote add origin <GITHUB LINK>
+
+git status        //checks files in the directory RED means not added, GREEN is added
+
+git add <FILE NAME>
+
+git commit -m "commit message"
+
+git push
