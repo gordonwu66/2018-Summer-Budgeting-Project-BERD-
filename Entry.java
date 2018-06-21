@@ -1,4 +1,5 @@
 import java.util.GregorianCalendar;
+import static java.lang.Math.toIntExact;
 
 public class Entry {
 	private String name, notes;
@@ -44,5 +45,14 @@ public class Entry {
 		return cal;
 	}
 	
+	public long compareTo(GregorianCalendar cal2) {
+		long time1 = cal.getTimeInMillis();
+		long time2 = cal2.getTimeInMillis();
+		
+		int t1 = toIntExact(time1);
+		int t2 = toIntExact(time2);
+		
+		return t2 - t1;
+	}
 	
 }
