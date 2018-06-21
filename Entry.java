@@ -1,5 +1,4 @@
 import java.util.GregorianCalendar;
-import static java.lang.Math.toIntExact;
 
 public class Entry {
 	private String name, notes;
