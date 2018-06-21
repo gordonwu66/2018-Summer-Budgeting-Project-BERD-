@@ -49,10 +49,12 @@ public class Entry {
 		long time1 = cal.getTimeInMillis();
 		long time2 = cal2.getTimeInMillis();
 		
-		int t1 = toIntExact(time1);
-		int t2 = toIntExact(time2);
-		
-		return t2 - t1;
+		if(time1 > time2)
+			return 1;
+		else if(time1 == time2)
+			return 0;
+		else
+			return -1;
 	}
 	
 }
