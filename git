@@ -10,4 +10,4 @@ git add <FILE NAME>
 
 git commit -m "commit message"
 
-git push
+git push origin master
