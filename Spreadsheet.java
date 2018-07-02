@@ -19,12 +19,15 @@ public class Spreadsheet {
 		Collections.sort(allEntries);
 	}
 	
-	public Entry removeEntry() {
+	public Entry removeEntry(Entry toRemove) {
 		Entry entry = null;
 		
 		// fix me
-		for (Entry temp : allEntries.values()) {
-			
+		for (Entry temp : allEntries) {
+			if(temp.equals(toRemove)) {
+				entry = temp;
+				allEntries.remove(temp);
+			}
 		}
 		
 		return entry;
