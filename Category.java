@@ -1,7 +1,11 @@
+import java.util.ArrayList;
 
 public class Category {
 	private String name;
 	private Category parent;
+	
+	private ArrayList<Category> subCategories;
+	private ArrayList<Entry> entriesInCategory;
 	
 	public Category(String name) {
 		this.name = name;
@@ -22,7 +26,15 @@ public class Category {
 			return null;
 	}
 	
-	public void setParent(Category newParent) {
-		parent = newParent;
+	public void setParent(Category parent) {
+		this.parent = parent;
+	}
+	
+	public void addSubCategory(Category c) {
+		subCategories.add(c);
+	}
+	
+	public void addEntry(Entry e) {
+		entriesInCategory.add(e);
 	}
 }
