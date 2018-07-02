@@ -1,32 +1,42 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.GregorianCalendar;
-// import java.util.HashMap;
+import java.util.Comparator;
 
 public class Spreadsheet {
-	// HashMap<GregorianCalendar, ArrayList<Entry>> allEntries;
-	ArrayList<Entry> allEntries;
-	ArrayList<Category> superCategories;
+	private ArrayList<Entry> allEntries;
+	private ArrayList<Category> superCategories;
 	
 	public Spreadsheet() {
-		// allEntries = new HashMap<GregorianCalendar, ArrayList<Entry>>();
 		allEntries = new ArrayList<Entry>();
 		superCategories = new ArrayList<Category>();
 	}
 	
+	// add to entry list and sort
 	public void addEntry(Entry newEntry) {
 		allEntries.add(newEntry);
-		
-		// fix sort
-		Collections.sort(allEntries);
+		Collections.sort(allEntries, new EntryComparator());
+	}
+	
+	// use to sort entry list
+	private class EntryComparator implements Comparator<Entry> {
+		@Override
+		public int compare(Entry e1, Entry e2) {
+			return e1.compareTo(e2);
+		}
+	}
+	
+	// add to category list
+	public void addEntryToCategoryList() {
 		
 	}
 	
-	public Entry removeEntry(Entry toRemove) {
+	// remove target entry from both entry and category lists
+	// return removed entry
+	public Entry removeEntry(Entry target) {
 		Entry entry = null;
 
 		for (Entry temp : allEntries) {
-			if(temp.equals(toRemove)) {
+			if (temp.equals(target)) {
 				entry = temp;
 				allEntries.remove(temp);
 			}
@@ -35,35 +45,62 @@ public class Spreadsheet {
 		return entry;
 	}
 	
-	// adds a super category with no parents
+	// add super-category with no parents
 	public void addCategory(Category newCategory) {
 		superCategories.add(newCategory);
 	}
 	
-	// adds the subcategory under its parent 
+	// add sub-category under parent 
 	public void addCategory(Category newCategory, Category parent) {
 		parent.addSubCategory(newCategory);
 	}
 	
-	public Category removeCategory() {
-		Category category = null;
+	// remove target category from category list
+	public void destroyCategory(Category target) {
+		// ???
+		/*
+		Category category = null, parent = target.getParent();
+		ArrayList<Category> path = new ArrayList<Category>();
 		
-		for (Category temp : superCategories) {
-			
+		while (parent != null) {
+			path.add(0, parent);
+			parent = parent.getParent();
 		}
 		
-		return category;
+		for (Category temp1 : superCategories) {
+			if (temp1.equals(path.get(0))) {
+				
+			}
+		}
+		
+		while (path.size() > 0) {
+			
+		}
+		*/
+		
+		ArrayList<Entry> targetEntries = new ArrayList<Entry>();
+		targetEntries = target.destroy(targetEntries);
+		for (Entry entry : targetEntries) {
+			removeEntry(entry);
+		}
 	}
 	
-	public void addEntryToCategory() {
-		// 
+		/// idk if we use these but i'll put them here in case we do
+	// return entry list
+	public ArrayList<Entry> getEntryList() {
+		return allEntries;
 	}
-
+	
+	// return category list
+	public ArrayList<Category> getSuperCategoryList() {
+		return superCategories;
+	}
+	
 	public String toString() {
 		String str = "";
 		
 		
 		
 		return str;
-	}	
+	}
 }

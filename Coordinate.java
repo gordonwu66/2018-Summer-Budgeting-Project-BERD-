@@ -1,7 +1,9 @@
 import java.util.GregorianCalendar;
 
-/* Stores data points in two variables, date and money spent, based on total
- * amount of money spent on each date */
+/*
+ * Stores data points in two variables, date and money spent, based on total
+ * amount of money spent on each date
+ */
 
 public class Coordinate {
 	private GregorianCalendar date;
@@ -34,6 +36,4 @@ public class Coordinate {
 	public int getDollars() {
 		return dollars;
 	}
-	
-	
 }

@@ -18,8 +18,10 @@ public class Line extends Graph {
 		return title;
 	}
 	
-	/* Assigns the dates and costs for each entry from the list of entries to
-	 * the respective variables as a coordinate in the list of coordinates */
+	/*
+	 *  Assigns the dates and costs for each entry from the list of entries to
+	 * the respective variables as a coordinate in the list of coordinates
+	 */
 	void assignEntryData(ArrayList<Entry> entries) {
 		for(int i = 0; i < entries.size(); i++) {
 			realCoordinates.get(i).setDate(entries.get(i).getDate());
@@ -27,8 +29,10 @@ public class Line extends Graph {
 		}
 	}
 	
-	/* Creates the list of projected coordinates based on the user-determined
-	 * budgets */
+	/* 
+	 * Creates the list of projected coordinates based on the user-determined
+	 * budgets
+	 */
 	public void assignProjectedData() {
 		
 	}

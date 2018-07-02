@@ -44,16 +44,17 @@ public class Entry {
 		return cal;
 	}
 	
-	public long compareTo(GregorianCalendar cal2) {
+	public int compareTo(Entry e2) {
 		long time1 = cal.getTimeInMillis();
-		long time2 = cal2.getTimeInMillis();
+		long time2 = e2.cal.getTimeInMillis();
 		
-		if(time1 > time2)
+		if (time1 > time2) {
 			return 1;
-		else if(time1 == time2)
+		} else if (time1 == time2) {
 			return 0;
-		else
+		} else {
 			return -1;
+		}
 	}
 	
 }

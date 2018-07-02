@@ -19,22 +19,33 @@ public class Category {
 		return name;
 	}
 	
-	public String getParent() {
-		if(parent!=null)
-			return parent.getName();
-		else
-			return null;
+	public Category getParent() {
+		return parent;
 	}
 	
 	public void setParent(Category parent) {
 		this.parent = parent;
 	}
 	
-	public void addSubCategory(Category c) {
-		subCategories.add(c);
+	public void addSubCategory(Category category) {
+		subCategories.add(category);
 	}
 	
-	public void addEntry(Entry e) {
-		entriesInCategory.add(e);
+	public void addEntry(Entry newEntry) {
+		entriesInCategory.add(newEntry);
+	}
+	
+	public ArrayList<Entry> destroy(ArrayList<Entry> targetEntries) {
+		// add entries in destroyed category to target list
+		for (Entry entry : entriesInCategory) {
+			targetEntries.add(entry);
+		}
+		
+		// repeat with all sub-categories
+		for (Category category : subCategories) {
+			category.destroy(targetEntries);
+		}
+		
+		return targetEntries;
 	}
 }
