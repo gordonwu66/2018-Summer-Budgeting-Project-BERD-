@@ -21,4 +21,8 @@ public class Category {
 		else
 			return null;
 	}
+	
+	public void setParent(Category newParent) {
+		parent = newParent;
+	}
 }
