@@ -39,7 +39,13 @@ public class Line extends Graph {
 		
 	}
 	
-	
+	public String toString() {
+		String toReturn = "";
+		for(Coordinate c : realCoordinates) {
+			toReturn += "\n" +c.getDate() +" " +c.getDollars();
+		}
+		return toReturn;
+	}
 
 
 }

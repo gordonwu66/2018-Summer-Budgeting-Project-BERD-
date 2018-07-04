@@ -5,16 +5,14 @@
 public class PieVariable {
 	private String name;
 	private double percentage;
+	private int catID;
 	
-	public PieVariable(String nameIn) {
+	public PieVariable(String nameIn, int iD) {
 		name = nameIn;
+		catID = iD;
 		percentage = 0;
 	}
-	
-	public PieVariable(String nameIn, double percentageIn) {
-		name = nameIn;
-		percentage = percentageIn;
-	}
+
 	public String getName() {
 		return name;
 	}
@@ -34,6 +32,10 @@ public class PieVariable {
 	
 	public void addPercentage(double percentageToAdd) {
 		percentage += percentageToAdd;
+	}
+	
+	public int getID() {
+		return catID;
 	}
 
 }

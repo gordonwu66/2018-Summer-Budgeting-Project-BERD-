@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * Stores a list of entries in chronological order based on purchase date from
  * tree set of all entries recorded by user
  */
-public class History {
+public class History extends Visual {
 	
 	private String name;
 	private ArrayList<Entry> entries;
@@ -33,7 +33,7 @@ public class History {
 	public String toString() {
 		String toReturn = "";
 		for(Entry e : entries) {
-			toReturn += e.getDate() +" " +e.getName() +" " +e.getCost() +" " +e.getNotes();
+			toReturn += "\n" +e.getDate() +" " +e.getName() +" " +e.getCost() +" " +e.getNotes();
 		}
 		return toReturn;
 	}

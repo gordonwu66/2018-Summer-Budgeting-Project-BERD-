@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class Spreadsheet {
+public class Spreadsheet extends Visual {
 	private ArrayList<Entry> allEntries;
 	private ArrayList<Category> superCategories;
 	

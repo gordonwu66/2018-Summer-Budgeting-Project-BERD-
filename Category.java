@@ -4,11 +4,20 @@ public class Category {
 	private String name;
 	private Category parent;
 	
+	private static int globalID = 0;
+	private int instanceID;
+	
 	private ArrayList<Category> subCategories;
 	private ArrayList<Entry> entriesInCategory;
 	
 	public Category(String name) {
 		this.name = name;
+		instanceID = globalID;
+		globalID++;
+	}
+	
+	public int getID() {
+		return instanceID;
 	}
 	
 	public void setName(String name) {

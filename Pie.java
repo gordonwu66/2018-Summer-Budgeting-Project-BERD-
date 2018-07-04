@@ -22,27 +22,30 @@ public class Pie extends Graph {
 	 */
 	public void assignData(ArrayList<Entry> entries, ArrayList<Category> supercategories) {
 		for(int i = 0; i < supercategories.size(); i++) {
-			PieVariable currVar = new PieVariable(supercategories.get(i).getName());
+			PieVariable currVar = new PieVariable(supercategories.get(i).getName(), supercategories.get(i).getID());
 			variables.add(currVar);
 		}
 		for(int i = 0; i < entries.size(); i++) {
 			totalSpending += entries.get(i).getCost();
 			
-			/*
-			 * CURRENTLY USES CATEGORY NAMES TO ASSIGN DATA, IN FUTURE EACH ENTRY AND CATEGORY
-			 * SHOULD HOLD ITS OWN IDENTIFICATION VALUE
-			 */
 			for(int j = 0; j < variables.size(); j++) {
-				if(entries.get(i).getCategory().getName().equals(variables.get(i).getName())) {
+				if(entries.get(i).getCategory().getID() == (variables.get(i).getID())) {
 					variables.get(i).setPercentage(variables.get(i).getPercentage() + entries.get(i).getCost());
 				}
 			}
-
 		}
 		
 		for(int i = 0; i < variables.size(); i++) {
 			variables.get(i).setPercentage(variables.get(i).getPercentage() / totalSpending);
 		}
+	}
+	
+	public String toString() {
+		String toReturn = "";
+		for(PieVariable p : variables) {
+			toReturn += "\n" +p.getName() +" " +p.getID() +" " +p.getPercentage();
+		}
+		return toReturn;
 	}
 
 }
