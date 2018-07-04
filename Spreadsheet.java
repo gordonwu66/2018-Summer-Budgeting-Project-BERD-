@@ -11,9 +11,12 @@ public class Spreadsheet extends Visual {
 		superCategories = new ArrayList<Category>();
 	}
 	
-	// add to entry list and sort
-	public void addEntry(Entry newEntry) {
-		allEntries.add(newEntry);
+	// add to category list
+	// edit 7/4/2018: took addEntry functionality and put it into addEntryToCategoryList
+	//              : changed addEntryToCagetoryList name to addEntry
+	public void addEntry(Entry entryToAdd, Category categoryToAdd) {
+		categoryToAdd.addEntry(entryToAdd);
+		allEntries.add(entryToAdd);
 		Collections.sort(allEntries, new EntryComparator());
 	}
 	
@@ -24,12 +27,7 @@ public class Spreadsheet extends Visual {
 			return e1.compareTo(e2);
 		}
 	}
-	
-	// add to category list
-	public void addEntryToCategoryList(Entry entryToAdd, Category categoryToAdd) {
-		categoryToAdd.addEntry(entryToAdd);
-	}
-	
+
 	// remove target entry from both entry and category lists
 	// return removed entry
 	public Entry removeEntry(Entry target) {

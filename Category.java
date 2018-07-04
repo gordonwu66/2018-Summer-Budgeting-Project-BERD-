@@ -42,6 +42,7 @@ public class Category {
 	
 	public void addEntry(Entry newEntry) {
 		entriesInCategory.add(newEntry);
+		newEntry.setCategory(this);
 	}
 	
 	public ArrayList<Entry> destroy(ArrayList<Entry> targetEntries) {
