@@ -6,5 +6,5 @@ public abstract class Graph {
 	
 	abstract void setTitle(String titleIn);
 	
-	abstract void assignEntryData(ArrayList<Entry> entries); 
+	abstract void assignData(ArrayList<Entry> entries, ArrayList<Category> superCategories); 
 }

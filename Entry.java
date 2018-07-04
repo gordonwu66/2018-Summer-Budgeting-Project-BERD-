@@ -4,6 +4,7 @@ public class Entry {
 	private String name, notes;
 	private int cost;
 	private GregorianCalendar cal;
+	private Category categoryToBelongIn;
 	
 	public Entry(String name, String notes, int cost, int year, int month, int day) {
 		this.name = name;
@@ -42,6 +43,14 @@ public class Entry {
 	
 	public GregorianCalendar getDate() {
 		return cal;
+	}
+	
+	public Category getCategory() {
+		return categoryToBelongIn;
+	}
+	
+	public void setCategory(Category newCategory) {
+		categoryToBelongIn = newCategory;
 	}
 	
 	public int compareTo(Entry e2) {

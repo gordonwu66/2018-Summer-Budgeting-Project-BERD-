@@ -26,8 +26,8 @@ public class Spreadsheet {
 	}
 	
 	// add to category list
-	public void addEntryToCategoryList() {
-		
+	public void addEntryToCategoryList(Entry entryToAdd, Category categoryToAdd) {
+		categoryToAdd.addEntry(entryToAdd);
 	}
 	
 	// remove target entry from both entry and category lists

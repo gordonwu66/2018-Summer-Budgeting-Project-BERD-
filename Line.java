@@ -19,14 +19,16 @@ public class Line extends Graph {
 	}
 	
 	/*
-	 *  Assigns the dates and costs for each entry from the list of entries to
+	 * Assigns the dates and costs for each entry from the list of entries to
 	 * the respective variables as a coordinate in the list of coordinates
 	 */
-	void assignEntryData(ArrayList<Entry> entries) {
+	void assignData(ArrayList<Entry> entries, ArrayList<Category> superCategories) {
 		for(int i = 0; i < entries.size(); i++) {
-			realCoordinates.get(i).setDate(entries.get(i).getDate());
-			realCoordinates.get(i).setDollars(entries.get(i).getCost());
+			Coordinate currCoordinate = new Coordinate(entries.get(i).getDate(), entries.get(i).getCost());
+			realCoordinates.add(currCoordinate);
 		}
+		
+		// will add extra features related to user-defined categories
 	}
 	
 	/* 
